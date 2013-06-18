@@ -18,7 +18,7 @@ public class World {
 	}
 
 	public void dayPass() {
-		this.age = this.age.increaseAge();		
+		this.age.increaseAge();		
 	}
 
 	public int getCurrentDay() {

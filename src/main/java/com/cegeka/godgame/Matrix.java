@@ -15,9 +15,17 @@ public class Matrix implements Space {
 
 	private void initContent() {
 		this.content = new ArrayList<List<Cell>>(size);
-		for (int index = 0; index < size; index++) {
-			content.set(index, new ArrayList<Cell>(size));
+		for (int index = 0; index < size - 1; index++) {
+			content.add(createLineOfCells());
 		}
+	}
+
+	private List<Cell> createLineOfCells() {
+		List<Cell> line = new ArrayList<Cell>();
+		for (int i = 0; i < size - 1; i++) {
+			line.add(EmptyCell.getInstance());
+		}
+		return line;
 	}
 
 	@Override
@@ -25,14 +33,29 @@ public class Matrix implements Space {
 		return getCellFromContent(point);
 	}
 
+	@Override
+	public int getSpaceCellsCount() {
+		return this.size * this.size;
+	}
+
+	@Override
+	public void setCell(Point point, Cell cell) {
+		setCellToContent(point, cell);
+	}
+
 	private Cell getCellFromContent(Point point) {
 		validPointCheck(point);
 		return content.get(point.getX()).get(point.getY());
 	}
 
+	private void setCellToContent(Point point, Cell cell) {
+		validPointCheck(point);
+		content.get(point.getX()).set(point.getY(), cell);
+	}
+
 	private void validPointCheck(Point point) {
-		if (point == null || !Point.validInterval(point, 0, size)) {
-			throw new IllegalStateException("Point is invalid !");
+		if (point == null || !Point.validInterval(point, 0, size - 1)) {
+			throw new IllegalArgumentException("Point is invalid !");
 		}
 	}
 

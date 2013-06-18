@@ -1,7 +1,7 @@
 package com.cegeka.godgame;
 
 public class Age {
-	public static final Age ONE_DAY = new ImmutableAge(1);
+	public static final Age ONE_DAY = new Age(1);
 	protected int days = 0;
 
 	public Age(int daysOld) {
