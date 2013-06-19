@@ -1,6 +1,7 @@
 package com.cegeka.godgame;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,26 +16,14 @@ public class MatrixTest {
 	}
 
 	@Test
-	public void testMatrixSpaceCellsCount() {
-		assertThat(matrix.getSpaceCellsCount()).isEqualTo(100);
-	}
-
-	@Test
 	public void testGetCell() {
-		Point point = new Point(1, 1);
-		Cell cell = new Cell() {
-			@Override
-			public void onAge() {
-			}
-		};
-		matrix.setCell(point, cell);
-		assertThat(matrix.getCell(point)).isEqualTo(cell);
-		assertThat(matrix.getCell(new Point(1, 2))).isEqualTo(
-				EmptyCell.getInstance());
+		// given a matrix with some particular cell in place see
+		// if retrieving it gives the expected cell
+		fail("Not yet implemented");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void testGetCellThrowsException() {
-		assertThat(matrix.getCell(new Point(10, 10))).isEqualTo(EmptyCell.getInstance());
+		assertThat(matrix.getCell(new Point(10, 10))).isEqualTo(null);
 	}
 }

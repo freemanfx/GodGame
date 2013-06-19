@@ -3,7 +3,7 @@ package com.cegeka.godgame;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Matrix implements Space {
+public class Matrix {
 	private int size;
 
 	private List<List<Cell>> content;
@@ -23,22 +23,15 @@ public class Matrix implements Space {
 	private List<Cell> createLineOfCells() {
 		List<Cell> line = new ArrayList<Cell>();
 		for (int i = 0; i < size - 1; i++) {
-			line.add(EmptyCell.getInstance());
+			line.add(new Cell());
 		}
 		return line;
 	}
-
-	@Override
+	
 	public Cell getCell(Point point) {
 		return getCellFromContent(point);
 	}
 
-	@Override
-	public int getSpaceCellsCount() {
-		return this.size * this.size;
-	}
-
-	@Override
 	public void setCell(Point point, Cell cell) {
 		setCellToContent(point, cell);
 	}

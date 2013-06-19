@@ -16,8 +16,7 @@ public class WorldTest {
 	
 	@Test
 	public void givenAWorld_WhenCreatingIt_ThenICanGiveItASize() {
-		world = new World(10);
-		
+		world = new World(10);		
 		assertThat(world.size()).isEqualTo(100);
 	}
 

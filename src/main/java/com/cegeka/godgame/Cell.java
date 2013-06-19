@@ -1,6 +1,6 @@
 package com.cegeka.godgame;
 
-public abstract class Cell {
+public class Cell {
 
 	private final Age age;
 
@@ -11,14 +11,7 @@ public abstract class Cell {
 	public Cell(Age initialAge) {
 		this.age = initialAge;
 	}
-
-	public abstract void onAge();
-
-	public void doAge() {
-		age.increaseAge();
-		onAge();
-	}
-
+	
 	public Age getAge() {
 		return age;
 	}
